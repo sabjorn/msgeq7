@@ -17,6 +17,7 @@ void Msgeq7::begin(){
     /*
         Sets up output pins
         Uses registers for speed
+        Does not work with pins above 7.
     */
     DDRD |= _BV(strobepin_);
     DDRD |= _BV(resetpin_);
