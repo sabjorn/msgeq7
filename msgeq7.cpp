@@ -1,3 +1,9 @@
+/*
+  msgeq7.cpp - Library for interfacing with MSGEQ7 chip.
+  Created by Steven A. Bjornson, September 1, 2018.
+  See license file for license info.
+*/
+
 #include "msgeq7.h"
 
 Msgeq7::Msgeq7(uint8_t analogpin, uint8_t strobepin, uint8_t resetpin, uint8_t threshold){
@@ -8,8 +14,10 @@ Msgeq7::Msgeq7(uint8_t analogpin, uint8_t strobepin, uint8_t resetpin, uint8_t t
 }
 
 void Msgeq7::begin(){
-    // Pinmode OUTPUT
-    // using registers for speed
+    /*
+        Sets up output pins
+        Uses registers for speed
+    */
     DDRD |= _BV(strobepin_);
     DDRD |= _BV(resetpin_);
     PORTD |= _BV(strobepin_);
