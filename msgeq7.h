@@ -15,6 +15,7 @@ class Msgeq7{
         void update();
         void setThreshold(uint8_t threshold);
         bool checkClipping();
+        uint8_t getInterpolate(float bin); // input bounded [0, 1]
         uint8_t* getFreqBins();
 
     private:

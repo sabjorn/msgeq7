@@ -50,6 +50,20 @@ void Msgeq7::update(){
     sei();
 }
 
+uint8_t Msgeq7::getInterpolate(float bin){
+    /*
+        Linearally interpolate between bins
+    */
+    // keep [0, 1]
+    bin = fmin(bin, 1.0);
+    bin = fmax(bin, 0.0);
+
+    float selected = bin * 6;
+    uint8_t index = floor(selected); //the int part of selected
+    float coef = selected - index; //the float part of selected
+    return freqBins[index] * (1-coef) + freqBins[index + 1] * coef; //linear interpolate between bins
+}
+
 void Msgeq7::setThreshold(uint8_t threshold){
     threshold_ = threshold;
 }
